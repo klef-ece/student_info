@@ -83,12 +83,17 @@ async function searchData() {
     filteredRows.forEach(row => {
         const tr = document.createElement("tr");
 
+        // Highlight row if any cell contains "cgpa"
+        const containsCGPA = row.some(cell =>
+            cell?.toString().toLowerCase().includes("cgpa")
+        );
+        if (containsCGPA) {
+            tr.classList.add("highlight-row");
+        }
+
         headers.forEach((_, index) => {
             const td = document.createElement("td");
             td.textContent = row[index] ?? "";
-            if (td.textContent.toLowerCase() === "cgpa") {
-                tr.classList.add("highlight-row");
-            }
             tr.appendChild(td);
         });
 
