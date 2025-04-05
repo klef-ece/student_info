@@ -1,6 +1,6 @@
 async function fetchExcelData() {
     try {
-        const url = "https://raw.githubusercontent.com/sureshkoumar11/Y22_Student_Info/main/data.xlsx";
+        const url = "https://raw.githubusercontent.com/klef-ece/student_info/main/data.xlsx";
         const response = await fetch(url);
         if (!response.ok) throw new Error("Failed to fetch Excel file");
 
