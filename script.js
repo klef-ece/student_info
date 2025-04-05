@@ -79,26 +79,25 @@ async function searchData() {
         table.style.display = "block";
         return;
     }
-
     filteredRows.forEach(row => {
-        const tr = document.createElement("tr");
+    const tr = document.createElement("tr");
 
-        // Highlight row if any cell contains "cgpa"
-        const containsCGPA = row.some(cell =>
-            cell?.toString().toLowerCase().includes("cgpa")
-        );
-        if (containsCGPA) {
-            tr.classList.add("highlight-row");
-        }
+    // Highlight row if any cell contains "cgpa"
+    const containsCGPA = row.some(cell =>
+        cell?.toString().toLowerCase().includes("cgpa")
+    );
+    if (containsCGPA) {
+        tr.classList.add("highlight-row");
+    }
 
-        headers.forEach((_, index) => {
-            const td = document.createElement("td");
-            td.textContent = row[index] ?? "";
-            tr.appendChild(td);
-        });
-
-        tableBody.appendChild(tr);
+    headers.forEach((_, index) => {
+        const td = document.createElement("td");
+        td.textContent = row[index] ?? "";
+        tr.appendChild(td);
     });
+
+    tableBody.appendChild(tr);
+});
 
     table.style.display = "block";
 }
