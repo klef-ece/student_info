@@ -80,16 +80,6 @@ async function searchData() {
         if (matchingRows.length > 0) {
             foundResults = true;
 
-            // Add sheet title row
-            const sheetTitleRow = document.createElement("tr");
-            const sheetTitleCell = document.createElement("td");
-            sheetTitleCell.colSpan = headers.length;
-            sheetTitleCell.style.fontWeight = "bold";
-            sheetTitleCell.style.backgroundColor = "#cce5ff";
-            sheetTitleCell.textContent = `Sheet: ${sheetName}`;
-            sheetTitleRow.appendChild(sheetTitleCell);
-            tableBody.appendChild(sheetTitleRow);
-
             // Header row
             if (tableHead.childElementCount === 0) {
                 headers.forEach(header => {
