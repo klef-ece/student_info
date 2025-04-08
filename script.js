@@ -15,7 +15,6 @@ async function fetchExcelData() {
 
             if (sheetData.length > 1) {
                 combinedData.push({
-                    sheetName,
                     headers: sheetData[0],
                     rows: sheetData.slice(1)
                 });
@@ -62,7 +61,7 @@ async function searchData() {
 
     let foundResults = false;
 
-    allSheetsData.forEach(({ sheetName, headers, rows }) => {
+    allSheetsData.forEach(({ headers, rows }) => {
         const matchingRows = rows.filter(row => {
             const columnMatch = searchTerms.every((term, index) => {
                 if (!term) return true;
@@ -80,7 +79,7 @@ async function searchData() {
         if (matchingRows.length > 0) {
             foundResults = true;
 
-            // Header row
+            // Add table headers (only once)
             if (tableHead.childElementCount === 0) {
                 headers.forEach(header => {
                     const th = document.createElement("th");
@@ -89,7 +88,7 @@ async function searchData() {
                 });
             }
 
-            // Matching data rows
+            // Add matching rows
             matchingRows.forEach(row => {
                 const tr = document.createElement("tr");
 
