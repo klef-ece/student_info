@@ -13,13 +13,20 @@
     color: black !important;
   }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+/***************** TOP RIBBON ***************/
 .top-section {
-  margin-top: -5px; /* optional tweak */
+  margin-top: 0; /* or even -10px if needed */
   background-image: url('https://raw.githubusercontent.com/klef-ece/student_info/main/kllogo.jpg');
   background-repeat: no-repeat;
   background-position: center top;
-  background-size: contain; /* or cover, or exact dimensions */
-  padding-top: 150px; /* give space for the image */
+  background-size: contain;
+  padding-top: 150px;
+  position: relative;
+  z-index: 1;
 }
 
   
